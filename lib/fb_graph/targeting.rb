@@ -2,21 +2,21 @@ module FbGraph
   class Targeting
     include Comparison
 
-    attr_accessor :country, :city, :region, :locale
+    attr_accessor :countries, :cities, :regions, :locales
 
     def initialize(attributes = {})
-      @country = attributes[:country]
-      @city    = attributes[:city]
-      @region  = attributes[:region]
-      @locale  = attributes[:locale]
+      @countries = attributes[:countries]
+      @cities    = attributes[:cities]
+      @regions   = attributes[:regions]
+      @locales   = attributes[:locales]
     end
 
     def to_hash(options = {})
       {
-        :country => self.country,
-        :city    => self.city,
-        :region  => self.region,
-        :locale  => self.locale
+        :countries => self.countries,
+        :cities    => self.cities,
+        :regions   => self.regions,
+        :locales   => self.locales
       }
     end
   end
