@@ -107,6 +107,7 @@ require 'fb_graph/privacy'
 require 'fb_graph/role'
 require 'fb_graph/subscription'
 require 'fb_graph/targeting'
+require 'fb_graph/feed_targeting'
 require 'fb_graph/venue'
 require 'fb_graph/work'
 

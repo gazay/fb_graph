@@ -6,7 +6,7 @@ module FbGraph
     include Connections::Likes::Likable
     extend Searchable
 
-    attr_accessor :from, :to, :with_tags, :message, :message_tags, :picture, :link, :name, :caption, :description, :source, :properties, :icon, :actions, :privacy, :type, :graph_object_id, :application, :targeting, :created_time, :updated_time, :story, :story_tags, :place
+    attr_accessor :from, :to, :with_tags, :message, :message_tags, :picture, :link, :name, :caption, :description, :source, :properties, :icon, :actions, :privacy, :type, :graph_object_id, :application, :targeting, :feed_targeting, :created_time, :updated_time, :story, :story_tags, :place
 
     def initialize(identifier, attributes = {})
       super
@@ -84,6 +84,13 @@ module FbGraph
           attributes[:targeting]
         else
           Targeting.new(attributes[:targeting])
+        end
+      end
+      if attributes[:feed_targeting]
+        @feed_targeting = if attributes[:feed_targeting].is_a?(FeedTargeting)
+          attributes[:feed_targeting]
+        else
+          FeedTargeting.new(attributes[:feed_targeting])
         end
       end
       if attributes[:created_time]
